@@ -4,10 +4,7 @@ from fastapi import status, HTTPException, Depends, APIRouter
 from fastapi.exceptions import HTTPException
 
 
-router = APIRouter(
-    prefix="/vote",
-    tags=["Vote"]
-)
+router = APIRouter(prefix="/vote",tags=["Vote"])
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 def vote(vote: schemas.Vote, db: Session = Depends(database.get_db), current_user = Depends(oauth2.get_current_user)):

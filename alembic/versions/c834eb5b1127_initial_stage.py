@@ -1,8 +1,8 @@
-"""Tables Created
+"""initial stage
 
-Revision ID: 4c3bc6fa6291
+Revision ID: c834eb5b1127
 Revises: 
-Create Date: 2023-07-12 12:05:40.110155
+Create Date: 2023-07-22 11:50:12.311783
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4c3bc6fa6291'
+revision = 'c834eb5b1127'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,7 +21,7 @@ def upgrade() -> None:
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('title', sa.String(), nullable=False),
                     sa.Column('content', sa.String(), nullable=False),
-                    sa.Column('published', sa.Boolean(), nullable=False),
+                    sa.Column('published', sa.Boolean(), server_default=True, nullable=False),
                     sa.Column('created_at', sa.TIMESTAMP(timezone=True),
                             server_default=sa.text('now()'), nullable=False),
                     sa.Column('owner_id', sa.Integer(), nullable=False),
@@ -52,4 +52,3 @@ def downgrade() -> None:
     op.drop_table('users')
     op.drop_table('votes')
     op.drop_constraint("post_users_fk",table_name="posts")
-

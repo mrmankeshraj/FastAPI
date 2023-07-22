@@ -16,16 +16,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# @app.on_event("startup")
-# def startup():
-#     redis_cache = FastApiRedisCache()
-#     redis_cache.init(
-#         host_url=os.environ.get("REDIS_URL", LOCAL_REDIS_URL),
-#         prefix="fastapiC-cache",
-#         response_header="X-FastAPI-Cache",
-#         ignore_arg_types=[Request,Response,Session]
-#     )
-
 # my_posts = [{"title": "title of post 1", "content": "content of post 1", "id": 1},
 #             {"title": "favorate food", "content": "I like Pizza", "id": 2}]
 

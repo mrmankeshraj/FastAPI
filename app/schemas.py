@@ -59,6 +59,7 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     model_config = ConfigDict(from_attributes=True)
+    
     id: str = Field(default=None)
 
 
